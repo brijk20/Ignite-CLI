@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+
+  ignite:
+    container_name: ignite
+    build:
+      dockerfile: ./Dockerfile
+    tty: true
+    stdin_open: true
+    #command: ignite chain serve
+    volumes:
+      - ./checkers:/checkers
+      - ./artifacts:/root/.ignite/
+    ports:
+      - 4500:4500
+      - 3000:3000
+      - 5000:5000
+      - 1317:1317
